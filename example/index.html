@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body ng-app="app">
+    <div ng-controller="controller" fbo-notifier="date">
+        <input type="text" ng-model="value" />
+        <button ng-click="update()">Update</button>
+        <div fbo-switch="value">
+            <div fbo-switch-when="0">fboSwitch 0</div>
+            <div fbo-switch-when="1">fboSwitch 1</div>
+            <div fbo-switch-default>fboSwitch default</div>
+        </div>
+        <div fbo-if="value">
+            <span fbo-parse="fboIf: {value}"></span>
+            <input type="text" fbo-parse="{value}" prop="placeholder" />
+        </div>
+        <div fbo-bind-html="html"></div>
+        <div class="fbo-class-string" fbo-class="value"></div>
+        <div class="fbo-class-object" fbo-class="{'add-class': value}"></div>
+        <div fbo-show="value">fboShow</div>
+        <div fbo-hide="value">fboHide</div>
+    </div>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="../ngFbo.js"></script>
+</body>
+</html>

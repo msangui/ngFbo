@@ -1,0 +1,28 @@
+{
+  "name": "fast-bind-once",
+  "version": "0.0.1",
+  "main": "bindonce.js",
+  "description": "Binding at compile time on directives",
+  "homepage": "https://github.com/msangui/ngFbo",
+  "author": "Matias Sanguinetti <msangui@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msangui/ngFbo.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "example"
+  ],
+  "dependencies": {
+  },
+  "keywords": [
+    "angularjs",
+    "angular",
+    "directive",
+    "fast-binding",
+    "fbo",
+    "fast-bind-once"
+  ]
+}
