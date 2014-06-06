@@ -1,5 +1,5 @@
 {
-  "name": "fast-bind-once",
+  "name": "ngFbo",
   "version": "0.0.1",
   "main": "bindonce.js",
   "description": "Binding at compile time on directives",

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fbo', [], function ($compileProvider) {
+angular.module('ngFbo', [], function ($compileProvider) {
   $compileProvider.directive('fboNotifier', function ($parse) {
     var Mode = {
         SHALLOW: 'shallow',
