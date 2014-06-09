@@ -1,6 +1,6 @@
 ngFbo
 =====
-First of I'd like to thank Karl Seamon who inspired me through his ngConf talk [Angular Performance](http://www.youtube.com/watch?v=zyYpHIOrk_Y), this is kind of a copy paste of his work.
+First of all I'd like to thank Karl Seamon who inspired me through his ngConf talk [Angular Performance](http://www.youtube.com/watch?v=zyYpHIOrk_Y), this is kind of a copy paste of his work.
 
 Install through bower:
 ```
