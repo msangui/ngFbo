@@ -354,9 +354,8 @@ angular.module('ngFbo', [], function ($compileProvider) {
                 replace();
               });
             });
-          } else {
-            replace();
           }
+          replace();          
         };
       }
     };
