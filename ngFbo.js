@@ -323,26 +323,31 @@ angular.module('ngFbo', [], function ($compileProvider) {
                 needsDefault = false;
               }
             });
-            if (!needsDefault && defaultChild.element) {
-              if (defaultChild.element.parent()[0]) {
-                defaultChild.element.replaceWith(defaultChild.comment);
-                defaultChild.element.contents().remove();
-              }
-            } else {
-              $compile(defaultContent.remove(), transclude)(scope, function (clone) {
-                if (defaultChild.comment.parent()[0]) {
-                  defaultChild.element.append(clone);
-                  defaultChild.comment.replaceWith(defaultChild.element);
+            if (defaultChild && defaultChild.element) {
+              if (!needsDefault) {
+                if (defaultChild.element.parent()[0]) {
+                  defaultChild.element.replaceWith(defaultChild.comment);
+                  defaultChild.element.contents().remove();
                 }
-              });
+              } else {
+                $compile(defaultContent.remove(), transclude)(scope, function (clone) {
+                  if (defaultChild.comment.parent()[0]) {
+                    defaultChild.element.append(clone);
+                    defaultChild.comment.replaceWith(defaultChild.element);
+                  }
+                });
+              }
             }
+
           }
           angular.forEach(scope.children, function (child, key) {
             contents[key] = child.element.contents().remove();
             child.element.replaceWith(child.comment);
           });
-          defaultContent = defaultChild.element.contents();
-          defaultChild.element.replaceWith(defaultChild.comment);
+          if (defaultChild && defaultChild.element) {
+            defaultContent = defaultChild.element.contents();
+            defaultChild.element.replaceWith(defaultChild.comment);
+          }      
           if (notifier) {
             notifier.getEventName(function (name) {
               scope.$on(name, function () {
