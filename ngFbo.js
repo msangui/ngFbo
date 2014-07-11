@@ -71,14 +71,14 @@ angular.module('ngFbo', [], function ($compileProvider) {
         return function link(scope, element, attrs, notifier) {
           var unbinds = {};
           function replace() {
-            var newValue = value;
+            var newValue = value + '';
             angular.forEach(expressions, function (expression, key) {
               // evaluate all expressions, if undefined then replace with empty string
               var evaluated = expression(scope);
               if (evaluated !== undefined) {
-                newValue = value.replace(key, evaluated);
+                newValue = newValue.replace(key, evaluated);
               } else {
-                newValue = value.replace(key, '');
+                newValue = newValue.replace(key, '');
               }
             });
             // for now only attrs & text are supported, for extra functionality add cases to the switch
