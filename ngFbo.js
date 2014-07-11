@@ -251,6 +251,10 @@ angular.module('ngFbo', [], function ($compileProvider) {
                   element.append(clone);
                   commentElement.replaceWith(element);
                 });
+                $compile(element.contents(), transclude)(scope, function (clone) {
+                  element.html('');
+                  element.append(clone);
+                });
               }
             } else {
               if (element.parent()[0]) {
@@ -301,7 +305,7 @@ angular.module('ngFbo', [], function ($compileProvider) {
           var contents = {},
             defaultContent,
             defaultChild = scope.defaultChild;
-          function replace () {
+          function replace() {
             var needsDefault = true,
               switchValue = expr(scope),
               children = scope.children;
@@ -319,6 +323,10 @@ angular.module('ngFbo', [], function ($compileProvider) {
                     child.element.append(clone);
                     child.comment.replaceWith(child.element);
                   });
+                  $compile(element.contents(), transclude)(scope, function (clone) {
+                    element.html('');
+                    element.append(clone);
+                  });
                 }
                 needsDefault = false;
               }
@@ -329,6 +337,7 @@ angular.module('ngFbo', [], function ($compileProvider) {
                   defaultChild.element.replaceWith(defaultChild.comment);
                   defaultChild.element.contents().remove();
                 }
+
               } else {
                 $compile(defaultContent.remove(), transclude)(scope, function (clone) {
                   if (defaultChild.comment.parent()[0]) {
@@ -336,9 +345,12 @@ angular.module('ngFbo', [], function ($compileProvider) {
                     defaultChild.comment.replaceWith(defaultChild.element);
                   }
                 });
+                $compile(element.contents(), transclude)(scope, function (clone) {
+                  element.html('');
+                  element.append(clone);
+                });
               }
             }
-
           }
           angular.forEach(scope.children, function (child, key) {
             contents[key] = child.element.contents().remove();
@@ -355,7 +367,8 @@ angular.module('ngFbo', [], function ($compileProvider) {
               });
             });
           }
-          replace();          
+          replace();
+
         };
       }
     };
