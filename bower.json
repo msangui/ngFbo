@@ -1,7 +1,7 @@
 {
   "name": "ngFbo",
   "version": "0.0.1",
-  "main": "ngFbo.js",
+  "main": "ng-fbo.js",
   "description": "Binding at compile time on directives",
   "homepage": "https://github.com/msangui/ngFbo",
   "author": "Matias Sanguinetti <msangui@gmail.com>",
